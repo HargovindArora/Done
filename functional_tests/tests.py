@@ -28,7 +28,7 @@ class NewVisitorTest(LiveServerTestCase):
                 time.sleep(0.5)
 
 
-    def test_can_start_a_list_and_retrieve_it_later(self):
+    def test_can_start_a_list_for_one_user(self):
         self.browser.get('http://localhost:8000')
 
         self.assertIn('To-Do', self.browser.title)
@@ -52,11 +52,6 @@ class NewVisitorTest(LiveServerTestCase):
         self.wait_for_row_in_list_table('1: Buy peacock feathers')
 
         self.fail('Finish the test!')
-
-    def test_can_start_a_list_for_one_user(self):
-
-        self.wait_for_row_in_list_table('2: Use peacock feathers to make a fly',)
-        self.wait_for_row_in_list_table('1: Buy peacock feathers')
 
     def test_multiple_users_can_start_lists_at_different_urls(self):
 

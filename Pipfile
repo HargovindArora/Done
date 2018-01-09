@@ -1,0 +1,24 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+certifi = "==2016.2.28"
+dj-database-url = "==0.4.2"
+Django = "==1.11.8"
+gunicorn = "==19.7.1"
+pbr = "==3.1.1"
+pytz = "==2017.3"
+selenium = "==3.8.0"
+stevedore = "==1.27.1"
+virtualenv = "==15.1.0"
+virtualenv-clone = "==0.2.6"
+virtualenvwrapper = "==4.8.2"
+
+
+[dev-packages]
+

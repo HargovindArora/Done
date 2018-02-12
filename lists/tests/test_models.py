@@ -39,7 +39,9 @@ class ListAndItemModelsTest(TestCase):
         self.assertEqual(saved_items.count(), 2)
 
         first_saved_item = saved_items[0]
+        print(first_saved_item.text)
         second_saved_item = saved_items[1]
+        print(second_saved_item.text)
         self.assertEqual(first_saved_item.text, 'The first (ever) list item')
         self.assertEqual(first_saved_item.list, list_)
         self.assertEqual(second_saved_item.text, 'Item the second')
@@ -55,3 +57,17 @@ class ListAndItemModelsTest(TestCase):
     def test_get_absolute_url(self):
         list_ = List.objects.create()
         self.assertEqual(list_.get_absolute_url(), f'/lists/{list_.id}/')
+
+    def test_list_ordering(self):
+        list1 = List.objects.create()
+        item1 = Item.objects.create(list=list1, text='li')
+        item2 = Item.objects.create(list=list1, text='item 2')
+        item3 = Item.objects.create(list=list1, text='3')
+        self.assertEqual(
+            list(Item.objects.all()),
+            [item1, item2, item3]
+        )
+
+    def test_string_representation(self):
+        item = Item(text='some text')
+        self.assertEqual(str(item), 'some text')

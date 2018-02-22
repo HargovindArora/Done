@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -10,12 +9,25 @@
   <body>
     <div class="" id="qunit"></div>
     <div class="" id="qunit-fixture"></div>
+
+      <form>
+        <input name="text"/>
+        <div class="has-error">
+          Error text
+        </div>
+      </form>
+
+
+    <script src="../jquery-3.3.1.js"></script>
     <script src="qunit-2.5.0.js"></script>
+
 
     <script>
 
-    QUnit.test("smoke test", function (assert){
-      assert.equal(1, 1, "Maths works!");
+    QUnit.test("smoke test", function (assert) {
+      assert.equal($('.has-error').is(':visible'), true);
+      $('.has-error').hide();
+      assert.equal($('.has-error').is(':visible'), false);
     });
 
     </script>
